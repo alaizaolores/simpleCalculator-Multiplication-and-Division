@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olores, Alaiza Rose - BSIT-2R13</title>
+    <style>
+        #border {
+            width: 300px;
+            height: 155px;
+            border: 1px solid rgb(25, 224, 238);
+            padding: 10px;
+            margin: 8px;
+            margin-right: 8px;
+            padding-bottom: 15px;
+        }
+
+        body {
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        button:focus {
+            font-size: 14px;
+            background-color: rgb(14, 250, 250);
+            padding: 2px 6px;
+            text-align: center;
+            border: 2px solid #2be9e9; 
+        }
+        
+        input[type="number"] {
+            border: 1px solid rgb(224, 216, 216);
+            padding: 4px;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication and Division Calculator</h1>
+
+    <div id="border">
+        <label for="number1" style="padding-right: 16px">1st Number:</label>
+        <input type="number" id="number1" name="number1"><br><br>
+
+        <label for="number2" style="padding-right: 11px">2nd Number:</label>
+        <input type="number" id="number2" name="number2"><br><br>
+
+        <button onclick="multiply()" style="margin-right: 12px;">Multiply</button>
+        <button onclick="divide()">Divide</button><br><br>
+
+        <div id="resultContainer">
+            <div id="operation">The Result is:</div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function multiply() {
+            //input numbers
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+    
+            //to check if the inputs are valid numbers
+            if (isNaN(number1) || isNaN(number2)) {
+                alert("Please input valid numbers.");
+                return;
+            }
+
+            //calculate multiplication
+            var multiplication = number1 * number2;
+
+            //Display result
+            document.getElementById("result").innerText = multiplication;
+        }
+
+        function divide() {
+            //input numbers
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+
+            //to check if the inputs are valid numbers
+            if (isNaN(number1) || isNaN(number2)) {
+                alert("Please input valid numbers.");
+                return;
+            }
+
+            //check if number2 is not zero
+            if (number2 === 0) {
+                alert("Cannot divide by zero.");
+                return;
+            }
+
+            //calculate division
+            var division = number1 / number2;
+
+            //display result
+            document.getElementById("result").innerText = division;
+        }
+    </script>
+</body>
+</html>
